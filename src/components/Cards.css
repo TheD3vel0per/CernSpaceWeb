@@ -1,6 +1,20 @@
 #cards-z{
 
     z-index: 0;
+    background: #a78635;
 
+
+}
+
+.Container{
+
+    background: red;
+
+
+}
+
+#card-z{
+
+    background: red;
 
 }

@@ -1,9 +1,53 @@
-#nav{
+.nav{
 
     position: fixed;
     width: 100%;
     z-index: 30;    
     opacity: 0.9;
+    margin-top: 0;
+    padding-top: 0;
 
 
 }
+
+Nav.Link{
+
+    color: white;
+}
+  
+Nav.Link:visited{
+
+  color: white;
+
+
+}
+
+Nav.Link:hover{
+
+  color: white;
+
+  
+}
+
+Nav.Link:active{
+
+  color: white;
+
+  
+}
+
+a,a:hover,a:visited,a:active
+{
+
+  color:white;
+
+}
+
+
+
+
+
+
+
+
+

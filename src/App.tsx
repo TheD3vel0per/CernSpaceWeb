@@ -29,10 +29,10 @@ class App extends React.Component {
 
   render(): any {
     return (
-      <BrowserRouter>
+      <BrowserRouter  >
         <Header></Header>
         <Switch>
-        <Route path='/about-us' component={AboutUsPage}></Route>
+          <Route path='/about-us' component={AboutUsPage}></Route>
           <Route path='/projects' component={ProjectsPage}></Route>
           <Route path='/' component={HomePage}></Route>
         </Switch>

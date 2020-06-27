@@ -4,13 +4,15 @@
 
 import * as firebase from 'firebase';
 import { BehaviorSubject } from "rxjs";
+import { MDBBtn, MDBCard, MDBCardBody, MDBCardImage, MDBCardTitle, MDBCardText, MDBRow, MDBCol, MDBView, MDBIcon } from 'mdbreact';
 
 export interface Project {
     _id: string,
     name: string,
     shortDescription: string,
     longDescription: string,
-    images: Array<string>
+    images: Array<string>,
+    lastUpdated: number
 }
 
 export class ProjectsService {
@@ -41,8 +43,10 @@ export class ProjectsService {
                     name: data['name'] === undefined ? '' : data['name'],
                     shortDescription: data['shortDescription'] === undefined ? '' : data['shortDescription'],
                     longDescription: data['longDescription'] === undefined ? '' : data['longDescription'],
-                    images: data['images'] === undefined ? '' : data['images']
+                    images: data['images'] === undefined ? [] : data['images'],
+                    lastUpdated: data['lastUpdated'] === undefined ? 0 : data['lastUpdated'],
                 };
+
                 projects.push(project);
             });
 
@@ -59,4 +63,12 @@ export class ProjectsService {
     public getProject(id: string): Project {
         return this.projects.filter(project => project._id === id)[0];
     }
+
 }
+
+
+
+    
+
+
+
