@@ -16,6 +16,8 @@ import HomePage from './pages/HomePage';
 import SamplePage from './pages/SamplePage';
 import ProjectsPage from './pages/ProjectsPage';
 import AboutUsPage from './pages/AboutUsPage';
+import SingleProjectPage from './pages/SingleProjectPage';
+
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -29,11 +31,12 @@ class App extends React.Component {
 
   render(): any {
     return (
-      <BrowserRouter  >
+      <BrowserRouter>
         <Header></Header>
         <Switch>
           <Route path='/about-us' component={AboutUsPage}></Route>
           <Route path='/projects' component={ProjectsPage}></Route>
+          <Route path='/single-project' component={SingleProjectPage}></Route>
           <Route path='/' component={HomePage}></Route>
         </Switch>
         <Footer></Footer>

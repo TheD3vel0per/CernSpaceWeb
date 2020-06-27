@@ -12,7 +12,7 @@ class Header extends React.Component {
 
     render() {
         return (
-            <Navbar bg="dark" variant="dark" className="navbar navbar-inverse navbar-fixed-top">
+            <Navbar bg="dark" variant="dark" className="navbar navbar-inverse " fixed="top">
 
                 <Navbar.Brand href="#home">Cern SpaceWeb</Navbar.Brand>
                 <Navbar.Toggle />
@@ -21,6 +21,8 @@ class Header extends React.Component {
                         <Nav.Link><Link to="/">Home</Link></Nav.Link>
                         <Nav.Link><Link to="/projects">Projects</Link></Nav.Link>
                         <Nav.Link><Link to="/about-us">About Us</Link></Nav.Link>
+                        <Nav.Link><Link to="/project/C6GImveKtTCopJYtk0ec">Single Project Page</Link></Nav.Link>
+
                     </Nav>
                     <Form inline>
                         <FormControl type="text" placeholder="Search" className="mr-sm-2" />

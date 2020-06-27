@@ -1,72 +1,84 @@
 import React from 'react';
-import {Container, Card,CardDeck } from 'react-bootstrap';
+import {Container, Card, CardDeck, Button, ImageProps, } from 'react-bootstrap';
 import './ProjectCards.css';
-
-
-
+import {  MDBRow, MDBCol, MDBCard, MDBIcon, MDBBtn  } from "mdbreact";
+import { Link } from 'react-router-dom';
+import { Subscription } from 'rxjs';
 
 
 
 class ProjectCards extends React.Component {
 
-    constructor(props) {
-        super(props);
-    }
+  constructor(props) {
+    super(props);
+  }
 
+  state = {
+    projects: []
+  };
+  projectsSub$: Subscription = new Subscription();
+
+  componentDidMount() {
+    const projectsService = window['cernspace'];
+    this.projectsSub$ = projectsService.projects$.subscribe((data) => {
+        this.setState({ projects : data });
+    });
+  }
+
+  componentWillUnmount() {
+         
+    this.projectsSub$.unsubscribe();
+    
+}
+
+    
     render() {
         return (
 
-          <Container id="wrapperBoy">
+      
+      <MDBRow >
 
-                <CardDeck>
-                <Card>
-                    <Card.Img variant="top" src="holder.js/100px160" />
-                    <Card.Body>
-                    <Card.Title>Card title</Card.Title>
-                    <Card.Text>
-                        This is a wider card with supporting text below as a natural lead-in to
-                        additional content. This content is a little bit longer.
-                    </Card.Text>
-                    </Card.Body>
-                    <Card.Footer>
-                    <small className="text-muted">Last updated 3 mins ago</small>
-                    </Card.Footer>
-                </Card>
-                <Card>
-                    <Card.Img variant="top" src="holder.js/100px160" />
-                    <Card.Body>
-                    <Card.Title>Card title</Card.Title>
-                    <Card.Text>
-                        This card has supporting text below as a natural lead-in to additional
-                        content.{' '}
-                    </Card.Text>
-                    </Card.Body>
-                    <Card.Footer>
-                    <small className="text-muted">Last updated 3 mins ago</small>
-                    </Card.Footer>
-                </Card>
-                <Card>
-                    <Card.Img variant="top" src="holder.js/100px160" />
-                    <Card.Body>
-                    <Card.Title>Card title</Card.Title>
-                    <Card.Text>
-                        This is a wider card with supporting text below as a natural lead-in to
-                        additional content. This card has even longer content than the first to
-                        show that equal height action.
-                    </Card.Text>
-                    </Card.Body>
-                    <Card.Footer>
-                    <small className="text-muted">Last updated 3 mins ago</small>
-                    </Card.Footer>
-                </Card>
-                </CardDeck>
+        {/*  <MDBCol md='3' className='ml-3 mb-4 m-4'>     */}
+        
+          {this.state.projects.map (obj => {
+            return (
 
-          </Container>    
+            <MDBCol md='3' className='ml-3 mb-4 m-4'>
+            <MDBCard
+            className='card-image'
+            style={{
+              backgroundImage: "holder.js/160px100"
+            }}>
+            
+            <div className='text-black text-center  d-flex align-items-center rgba-black-strong py-5 px-4 rounded'>
+              <div>
+                <h6 className='pink-text'>
+                  <MDBIcon icon='chart-pie' />
+                  <strong>{obj.name}</strong>
+                </h6>
+                <h3 className='py-3 font-weight-bold'>
+                  <strong>{obj.name}</strong>
+                </h3>
+                <p className='pb-3'>
+                {obj.shortDescription}
+                </p>
+                <Button variant="primary">View Project</Button>
+              </div>
+            </div>
+            </MDBCard>
 
+            </MDBCol>
 
+            );
+
+            {/* </MDBCol>    */}
+          } ) }
+        
+        
+      </MDBRow>
+
+      
         );
-    }
-
 }
-
+}
 export default ProjectCards;

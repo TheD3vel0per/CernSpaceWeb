@@ -12,7 +12,12 @@ export interface Project {
     shortDescription: string,
     longDescription: string,
     images: Array<string>,
-    lastUpdated: number
+    lastUpdated: number,
+    host: {
+        ip: string,
+        port: number,
+        token: string
+    }
 }
 
 export class ProjectsService {
@@ -45,6 +50,7 @@ export class ProjectsService {
                     longDescription: data['longDescription'] === undefined ? '' : data['longDescription'],
                     images: data['images'] === undefined ? [] : data['images'],
                     lastUpdated: data['lastUpdated'] === undefined ? 0 : data['lastUpdated'],
+                    host: data['host'] === undefined ? 0 : data['host']
                 };
 
                 projects.push(project);
@@ -61,7 +67,8 @@ export class ProjectsService {
      * @returns {Project}
      */
     public getProject(id: string): Project {
-        return this.projects.filter(project => project._id === id)[0];
+        const project = this.projects.filter(project => project._id == id)[0];
+        return project;
     }
 
 }

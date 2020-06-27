@@ -1,14 +1,15 @@
-#cards-z{
+.cards-z{
 
     z-index: 0;
-    background: #a78635;
+    background: #ffffff;
+    
 
 
 }
 
 .Container{
 
-    background: red;
+    background: #7a7a72;
 
 
 }
@@ -16,5 +17,7 @@
 #card-z{
 
     background: red;
+    box-shadow: 10px 5px 5px red;
 
 }
+

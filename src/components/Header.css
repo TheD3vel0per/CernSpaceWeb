@@ -13,18 +13,20 @@
 Nav.Link{
 
     color: white;
+    text-decoration:none; 
 }
   
 Nav.Link:visited{
 
   color: white;
-
+  text-decoration:none; 
 
 }
 
 Nav.Link:hover{
 
   color: white;
+  text-decoration:none; 
 
   
 }
@@ -32,6 +34,7 @@ Nav.Link:hover{
 Nav.Link:active{
 
   color: white;
+  text-decoration:none; 
 
   
 }
@@ -40,6 +43,21 @@ a,a:hover,a:visited,a:active
 {
 
   color:white;
+  text-decoration:none; 
+
+}
+
+#allLinks{
+
+  color:white;
+  text-decoration: none;
+
+}
+
+.mr-auto:hover {
+
+  color: white;
+  text-decoration:none; 
 
 }
 

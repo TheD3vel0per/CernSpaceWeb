@@ -2,6 +2,7 @@ import React from 'react';
 import { MDBRow, MDBCol, MDBCard, MDBMask, MDBIcon, MDBBtn, MDBView, MDBCardTitle} from "mdbreact";
 import Header from '../components/Header';
 import ProjectCards from '../components/ProjectCards';
+import Typing from 'react-typing-animation';
 
 
 class ProjectsPage extends React.Component {
@@ -12,7 +13,12 @@ class ProjectsPage extends React.Component {
   render() {
     return (
       <>
-        <ProjectCards></ProjectCards>
+          <div className="jumbotron" id="laalu">
+                    <Typing>
+                          <p id="heading-text">PROJECTS</p>
+                    </Typing>
+                </div>
+       <ProjectCards></ProjectCards>
         
       </>
     );

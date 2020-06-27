@@ -6,4 +6,14 @@ font-size: 100px;}
 
 .h1{font-size: 100px;}
 
-/* unvisited link */
+.cardsBackground {
+    background: white;
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+
+  .carouselBackground {
+    background: white;
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
