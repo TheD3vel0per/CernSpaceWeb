@@ -11,8 +11,19 @@
     width:360px;
     height:50%;
     margin: center;
+    margin-top: 50px;
 
 }
+
+#carousel{
+    align-self: center;
+padding-top: 100px;
+width: 1200px;
+height: 600px;
+
+
+}
+
 
 
 .carousel-inner > .item > img { width:50%; height:50%; }

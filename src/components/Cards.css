@@ -34,5 +34,10 @@
 
 }
 
+.btn.btn-primary:hover {
+    background-color: #00BFFF;
+    text-decoration: none;
+}
+
 
 

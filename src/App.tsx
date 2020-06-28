@@ -13,14 +13,13 @@ import Jumbotron from './components/Jumbotron';
 
 // pages
 import HomePage from './pages/HomePage';
-//import SamplePage from './pages/SamplePage';
-import ProjectsPage from './pages/ProjectsPage';
+// import SamplePage from './pages/SamplePage';
 import AboutUsPage from './pages/AboutUsPage';
 import SingleProjectPage from './pages/SingleProjectPage';
+import SearchPage from './pages/SearchPage';
 
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import SearchPage from './pages/SearchPage';
 
 
 
@@ -37,8 +36,8 @@ class App extends React.Component {
         <Switch>
           <Route path='/project/:id' component={SingleProjectPage}></Route>
           <Route path='/about-us' component={AboutUsPage}></Route>
-          <Route path='/projects' component={ProjectsPage}></Route>
           <Route path='/search/:query' component={SearchPage}></Route>
+          <Route path='/search/' component={SearchPage}></Route>
           <Route path='/' component={HomePage}></Route>
         </Switch>
         <Footer></Footer>

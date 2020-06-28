@@ -7,7 +7,7 @@ import { Subscription } from 'rxjs';
 
 class Header extends React.Component {
 
-    
+
     state = {
         projects: [],
         proj: '',
@@ -16,40 +16,34 @@ class Header extends React.Component {
 
     constructor(props: any) {
         super(props);
-        
+        // this.keyPress = this.keyPress.bind(this);
     }
 
     componentDidMount() {
         const projectsService = window['cernspace'];
-        
+
         this.projectsSub$ = projectsService.projects$.subscribe((data) => {
             //console.log(data[0]);
-            this.setState({ projects : data });
+            this.setState({ projects: data });
         });
- 
+
     }
 
     componentWillUnmount() {
-         
+
         this.projectsSub$.unsubscribe();
-        
+
     }
-    
+
 
     handleSubmit = async (event) => {
         event.preventDefault();
 
         // implement filtering here
-        if (this.state.proj === ""){
-            alert("ERROR. No project entered.");
-        }
-        else
-            alert("Project ID "+ this.state.proj +" is being searched."); // PRINTS THE THING YOU ENTER IN THE PAGE
-           
     }
- 
+
     findFirstProjectId = (searchQuery) => {
-        
+
         return `/search/${searchQuery}`;
 
         // // filter projects
@@ -58,57 +52,78 @@ class Header extends React.Component {
         // if (filteredProjects.length === 0){
         //     return "";
         // }
-        
+
         // return '/project/'+filteredProjects[0]._id;
 
         // go through each array element and check if name is equal to the name entered by user.
-         /*
-        this.state.projects.forEach(function(element) {
-            if (element.name === searchQuery){
-                alert("FOUND");
-                
-                return element.name; // CURRNETLY
-            }
-        });
-        */
-        
-    };    
-  
+        /*
+       this.state.projects.forEach(function(element) {
+           if (element.name === searchQuery){
+               alert("FOUND");
+               
+               return element.name; // CURRNETLY
+           }
+       });
+       */
+
+    };
+
+    handleKeyPress(e) {
+        if (e.keyCode === 13) {
+            alert("Pressed Enter");
+        }
+        else {
+            alert("Nothing happened");
+        }
+
+    }
+
+
     render() {
 
-        
-            return (
-            <Navbar bg="dark" variant="dark" className="navbar navbar-inverse " fixed="top">
+        return (
+            <div>
+                <Navbar variant="dark" className="navbar navbar-inverse " fixed="top">
+                    <Navbar.Brand>
+                        <img src="/images/CernSpaceFlat.png" alt="" width={65} height={65} />
+                    </Navbar.Brand>
+                    <Navbar.Toggle />
+                    <Nav className="mr-auto">
+                        <Nav.Link className="btn1"><Link to="/">
+                            <div className="nounderline">
+                                <i className="fa fa-home fa-2x"></i>
+                                <span className="btn1 d-none d-sm-inline nounderline">Home</span>
+                            </div>
+                        </Link></Nav.Link>
+                        <Nav.Link className="btn1"><Link to="/about-us"><i className="fa fa-address-book-o fa-2x"></i>
+                            <span className="d-none d-sm-inline">About Us</span>
 
-                <Navbar.Brand href="#home">CernSpace Web</Navbar.Brand>
-                <Navbar.Toggle />
-                <Navbar.Collapse>
-                    <Nav className="mr-auto" id="allLinks">
-                        <Nav.Link><Link to="/">Home</Link></Nav.Link>
-                        <Nav.Link><Link to="/about-us">About Us</Link></Nav.Link>
-                        
+                        </Link></Nav.Link>
+
 
                     </Nav>
 
                     <Form inline onSubmit={this.handleSubmit}>
-                    <FormGroup controlId="proj">
-                        <label> </label>
-                    
-                        <FormControl type="text" 
-                                    placeholder=" Project Name " 
-                                    className="mr-sm-2" 
-                                    value = {this.state.proj}
-                                    onChange={e => this.setState({proj: e.target.value})} 
-                                    />
-                        <Link to={ this.findFirstProjectId(this.state.proj)} className="button" >Search</Link>
-                    
-                    </FormGroup>
+                        <FormGroup controlId="proj">
+                            <label> </label>
+
+                            <FormControl type="text"
+                                placeholder=" Enter Project Name "
+                                className="mr-sm-2"
+                                value={this.state.proj}
+                                onKeyDown={e => this.setState({ proj: e.target.value })} // i think we set a state because we received an input??
+                                onChange={e => this.setState({ proj: e.target.value })}
+
+                            />
+                            <Link to={this.findFirstProjectId(this.state.proj)} className="mr-1 button"> Search</Link>
+
+                        </FormGroup>
                     </Form>
-
-                </Navbar.Collapse>
-            </Navbar>
-
+                </Navbar>
+            </div>
         );
+
+
     }
 }
 

@@ -15,7 +15,7 @@ class AppCarousel extends React.Component {
 
     render() {
         return (
-
+        <Container id="carouselContainer">
             <Carousel id="carousel">
                 <Carousel.Item>
                     <img
@@ -44,7 +44,7 @@ class AppCarousel extends React.Component {
 
                 </Carousel.Item>
             </Carousel>
-
+            </Container>
         );
     }
 
