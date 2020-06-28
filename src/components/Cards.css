@@ -2,6 +2,8 @@
 
     z-index: 0;
     background: #ffffff;
+    margin: 0 auto;
+    height: 100%;
     
 
 
@@ -9,15 +11,28 @@
 
 .Container{
 
-    background: #7a7a72;
+   margin: 100 auto;
 
 
 }
 
-#card-z{
+.card-footer{
 
-    background: red;
-    box-shadow: 10px 5px 5px red;
+
+      /* background: blue;
+      vertical-align: bottom;
+      margin-top: 5px;
+      flex-direction: column; */
+
+      position: relative;
+      align-items: flex-end;
+      align-items: baseline;
+    
+     
+      bottom: 10px;
+        
 
 }
+
+
 

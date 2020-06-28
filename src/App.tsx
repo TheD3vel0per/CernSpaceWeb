@@ -36,7 +36,7 @@ class App extends React.Component {
         <Switch>
           <Route path='/about-us' component={AboutUsPage}></Route>
           <Route path='/projects' component={ProjectsPage}></Route>
-          <Route path='/single-project' component={SingleProjectPage}></Route>
+          <Route path='/single-project/:id' component={SingleProjectPage}></Route>
           <Route path='/' component={HomePage}></Route>
         </Switch>
         <Footer></Footer>

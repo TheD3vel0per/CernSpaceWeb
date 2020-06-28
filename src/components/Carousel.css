@@ -1,12 +1,12 @@
-#carousel{
+.carousel{
 
-    width: 500px;
+    width: 100%;
     height: 500px;
-    margin: 50px auto ;
+    margin-left: 0;
+    margin-right: 0;
     align-items: center;
-    
-
-
 
 }
+
+.carousel-inner > .item > img { width:360px; height:360px; }
 

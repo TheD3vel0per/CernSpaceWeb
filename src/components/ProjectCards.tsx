@@ -30,27 +30,23 @@ class ProjectCards extends React.Component {
     this.projectsSub$.unsubscribe();
     
 }
-
     
     render() {
         return (
-
       
-      <MDBRow >
-
-        {/*  <MDBCol md='3' className='ml-3 mb-4 m-4'>     */}
-        
+      <Container id="wrapperBoy" >
+      <MDBRow  >        
           {this.state.projects.map (obj => {
             return (
 
-            <MDBCol md='3' className='ml-3 mb-4 m-4'>
+            <MDBCol md='3' className=' mb-4 m-4'>
             <MDBCard
             className='card-image'
             style={{
               backgroundImage: "holder.js/160px100"
             }}>
             
-            <div className='text-black text-center  d-flex align-items-center rgba-black-strong py-5 px-4 rounded'>
+            <div className='text-black text-center d-flex align-items-center rgba-black-strong py-5 px-4 rounded'>
               <div>
                 <h6 className='pink-text'>
                   <MDBIcon icon='chart-pie' />
@@ -66,17 +62,15 @@ class ProjectCards extends React.Component {
               </div>
             </div>
             </MDBCard>
-
             </MDBCol>
 
             );
 
-            {/* </MDBCol>    */}
           } ) }
         
         
       </MDBRow>
-
+      </Container>
       
         );
 }

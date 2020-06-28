@@ -1,6 +1,8 @@
 import React from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
-import Carousel from '../components/Carousel';
+import { Container, Row, Col, Carousel } from 'react-bootstrap';
+import './SingleProjectPage.css';
+import Cards from '../components/Cards';
+import { Subscription } from 'rxjs';
 
 class SingleProjectPage extends React.Component {
     state = {
@@ -19,39 +21,69 @@ class SingleProjectPage extends React.Component {
             }
         }
     };
+    projectsSub$: Subscription = new Subscription();
 
     constructor(props: any) {
         super(props);
-        this.state.id = props.match.params.projectId;
+        this.state.id = props.match.params.id;
+
     }
 
     componentDidMount() {
         const projectsService = window['cernspace'];
-        const project = projectsService.getProject(this.state.id);
-        this.setState({ project : project });
+        projectsService.getProject(this.state.id)
+            .then((result) => {
+                console.log(result);
+                this.setState({ project: result });
+            })
+            .catch((error) => {
+            });
+
+
+    }
+
+    componentWillUnmount() {
+        this.projectsSub$.unsubscribe();
     }
 
     render() {
         return (
             <>
                 <Container>
-                    <Row>
-        <Col>{this.state.project.name}</Col>
-                        <Col>2 of 2</Col>
-                    </Row>
-                    <Row>
-                        <Col>1 of 3</Col>
+                    <Col>
+                        <Row>
+                            <Carousel id="carousel">
+                                {this.state.project.images.map((imageSrc, index) => (
+                                    <Carousel.Item key={index}>
+                                        <img
+                                            className="d-block w-100"
+                                            src={imageSrc}
+                                            alt="image"
+                                        />
+                                    </Carousel.Item>
+                                ))}
+                            </Carousel>
 
-                        <Col>
-                            <div className="carouselBackground">
-                                <Carousel> </Carousel>
-                            </div>
-                        </Col>
-
-                        <Col>3 of 3</Col>
-                    </Row>
+                        </Row>
+                        <Row>
+                            <h1 id="projectname">
+                                {this.state.project.name}
+                            </h1>
+                        </Row>
+                        <Row>
+                            <p id='shortdescription'>
+                                {this.state.project.shortDescription}
+                            </p>
+                        </Row>
+                        <Row>
+                            <p id="longdescription">
+                                {this.state.project.longDescription}
+                            </p>
+                        </Row>
+                    </Col>
                 </Container>
             </>
+
         );
 
     }

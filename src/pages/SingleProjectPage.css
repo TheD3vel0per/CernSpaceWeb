@@ -1,0 +1,22 @@
+#projectname{
+
+    font: size 150%;
+    color: black;
+
+
+}
+
+
+.carouselBackground{
+
+    width:360px;
+    height:50%;
+    margin: center;
+
+}
+
+
+.carousel-inner > .item > img { width:50%; height:50%; }
+
+
+  

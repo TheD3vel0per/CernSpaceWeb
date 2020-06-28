@@ -3,7 +3,7 @@ import { MDBRow, MDBCol, MDBCard, MDBMask, MDBIcon, MDBBtn, MDBView, MDBCardTitl
 import Header from '../components/Header';
 import ProjectCards from '../components/ProjectCards';
 import Typing from 'react-typing-animation';
-
+import { Container } from 'react-bootstrap';
 
 class ProjectsPage extends React.Component {
   constructor(props: any) {
@@ -18,8 +18,9 @@ class ProjectsPage extends React.Component {
                           <p id="heading-text">PROJECTS</p>
                     </Typing>
                 </div>
+             
        <ProjectCards></ProjectCards>
-        
+               
       </>
     );
 

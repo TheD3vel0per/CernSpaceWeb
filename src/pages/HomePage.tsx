@@ -4,6 +4,8 @@ import Carousel from '../components/Carousel';
 import './HomePage.css';
 import Cards from '../components/Cards';
 import { Subscription } from 'rxjs';
+import { Container } from 'react-bootstrap';
+import Typing from 'react-typing-animation';
 
 class HomePage extends React.Component {
     constructor(props: any) {
@@ -15,13 +17,20 @@ class HomePage extends React.Component {
     render() {
         return (
             <>
-                
-                    <Jumbotron></Jumbotron>
-                    <div className="cardsBackground">
-                    <Cards></Cards>
+               
+                <div className="jumbotron" id="laalu" >
+                    <Typing>
+                          <p id="heading-text">CERN WEB</p>
+                          <h1 id="heading-text" className="neon"> Testing some Aesthetic </h1>
+
+                    </Typing> 
                     </div>
-
-
+                      
+                    <div className="cardsBackground">
+                        <Cards></Cards>
+                    </div>
+                      
+  
                 
             </>
         );

@@ -66,16 +66,25 @@ export class ProjectsService {
      * @param {string} id 
      * @returns {Project}
      */
-    public getProject(id: string): Project {
-        const project = this.projects.filter(project => project._id == id)[0];
-        return project;
+    public async getProject(id: string): Promise<Project> {
+        const project = (await this.projectsRef.doc(id).get()).data();
+        console.log(project);
+        return {
+            _id: project['_id'] === undefined ? '' : project['_id'],
+            name: project['name'] === undefined ? '' : project['name'],
+            shortDescription: project['shortDescription'] === undefined ? '' : project['shortDescription'],
+            longDescription: project['longDescription'] === undefined ? '' : project['longDescription'],
+            images: project['images'] === undefined ? [] : project['images'],
+            lastUpdated: project['lastUpdated'] === undefined ? 0 : project['lastUpdated'],
+            host: project['host'] === undefined ? 0 : project['host']
+        };
     }
 
 }
 
 
 
-    
+
 
 
 
