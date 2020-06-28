@@ -50,14 +50,16 @@ class Header extends React.Component {
  
     findFirstProjectId = (searchQuery) => {
         
-        // filter projects
-        const filteredProjects = this.state.projects.filter(project => project.name.indexOf(searchQuery) !== -1);
-        // return the search result id
-        if (filteredProjects.length === 0){
-            return "";
-        }
+        return `/search/${searchQuery}`;
+
+        // // filter projects
+        // const filteredProjects = this.state.projects.filter(project => project.name.indexOf(searchQuery) !== -1);
+        // // return the search result id
+        // if (filteredProjects.length === 0){
+        //     return "";
+        // }
         
-        return '/single-project/'+filteredProjects[0]._id;
+        // return '/project/'+filteredProjects[0]._id;
 
         // go through each array element and check if name is equal to the name entered by user.
          /*

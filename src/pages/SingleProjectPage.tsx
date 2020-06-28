@@ -66,17 +66,17 @@ class SingleProjectPage extends React.Component {
 
                         </Row>
                         <Row>
-                            <h1 id="projectname">
+                            <h1 id="projectname" className="content">
                                 {this.state.project.name}
                             </h1>
                         </Row>
                         <Row>
-                            <p id='shortdescription'>
+                            <p id='shortdescription' className="content">
                                 {this.state.project.shortDescription}
                             </p>
                         </Row>
                         <Row>
-                            <p id="longdescription">
+                            <p id="longdescription" className="content">
                                 {this.state.project.longDescription}
                             </p>
                         </Row>

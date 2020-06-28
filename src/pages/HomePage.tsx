@@ -20,8 +20,9 @@ class HomePage extends React.Component {
                
                 <div className="jumbotron" id="laalu" >
                     <Typing>
-                          <p id="heading-text">CERN WEB</p>
-                          <h1 id="heading-text" className="neon"> Testing some Aesthetic </h1>
+                          {/*<p id="heading-text">CERN WEB</p>*/}
+                          <h1 id="heading-text" className="neon"> Welcome to CERNSpace Web. </h1>
+                          
 
                     </Typing> 
                     </div>

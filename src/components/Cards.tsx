@@ -60,11 +60,11 @@ class Cards extends React.Component {
                         </MDBCardTitle>
 
                         <MDBCardText>
-                        <p className='font-weight-bold blue-text'>{obj.shortDescription}</p>
+                        <p className='blue-text'>{obj.shortDescription}</p>
                         </MDBCardText>
                         
                         
-                        <Link to={'/single-project/'+ obj._id}>
+                        <Link to={'/project/'+ obj._id}>
                             <Button className="align-self-end primary-btn">Project Page</Button>
                             </Link>
                     </MDBCardBody>

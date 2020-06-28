@@ -3,7 +3,6 @@
     font: size 150%;
     color: black;
 
-
 }
 
 
@@ -17,6 +16,10 @@
 
 
 .carousel-inner > .item > img { width:50%; height:50%; }
+
+#heading {
+    font-size: 1.5em!important;
+}
 
 
   
