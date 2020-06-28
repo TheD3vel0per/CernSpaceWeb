@@ -178,7 +178,7 @@ class AboutUsPage extends React.Component {
                       <div className="frontside">
                         <div className="card">
                           <div className="card-body text-center">
-                            <p><img className=" img-fluid" src="/images/headshots/ansh.jpg" alt="card image" /></p>
+                            <p><img className=" img-fluid" src="/images/headshots/ansh.png" alt="card image" /></p>
                             <h4 className="card-title">Ansh Gandhi</h4>
                             <p className="card-text">Computer Science and Statistics student at UBC, Class of 2023.  </p>
 
